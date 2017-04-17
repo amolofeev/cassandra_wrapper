@@ -49,7 +49,7 @@ class CassandraWrapper(pycassa.ColumnFamily):
 
     def convert_type(self,value,c_type=None):
         # get value's type_name
-        if type(c_type) is not (str or unicode):
+        if not isinstance(c_type, basestring):
             try:
                 c_type = c_type.__name__
             except AttributeError:
